@@ -1,0 +1,2 @@
+extensions:
+    oauth: SixtyEightPublishers\OAuth\Bridge\Nette\DI\OAuthExtension

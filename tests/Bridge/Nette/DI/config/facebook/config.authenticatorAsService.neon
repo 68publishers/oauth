@@ -1,0 +1,13 @@
+extensions:
+    oauth: SixtyEightPublishers\OAuth\Bridge\Nette\DI\OAuthExtension
+    oauth.facebook: SixtyEightPublishers\OAuth\Bridge\Nette\DI\FacebookOAuthExtension
+
+oauth.facebook:
+    config:
+        clientId: client
+        clientSecret: secret
+        graphApiVersion: v3.2
+    authenticator: @azure_authenticator
+
+services:
+    azure_authenticator: SixtyEightPublishers\OAuth\Tests\Fixtures\AuthenticatorFixture

@@ -1,0 +1,17 @@
+application:
+	scanDirs: no
+	scanComposer: no
+	catchExceptions: no
+	mapping:
+		*: SixtyEightPublishers\OAuth\Tests\Bridge\Nette\Application\*Presenter
+
+services:
+    - SixtyEightPublishers\OAuth\Tests\Bridge\Nette\Application\OAuthPresenter
+    - Nette\Application\Routers\Route('/<presenter>[/<action>]')
+    - SixtyEightPublishers\OAuth\OAuthFlowProvider(
+        flowServiceNames: [
+            test: flow.test
+        ]
+    )
+
+    nette.userStorage: SixtyEightPublishers\OAuth\Tests\Fixtures\InMemoryUserStorage

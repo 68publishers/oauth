@@ -1,0 +1,12 @@
+extensions:
+    oauth: SixtyEightPublishers\OAuth\Bridge\Nette\DI\OAuthExtension
+    oauth.azure: SixtyEightPublishers\OAuth\Bridge\Nette\DI\AzureOAuthExtension
+
+oauth.azure:
+    config:
+        clientId: client
+        clientSecret: secret
+    authenticator: @azure_authenticator
+
+services:
+    azure_authenticator: SixtyEightPublishers\OAuth\Tests\Fixtures\AuthenticatorFixture

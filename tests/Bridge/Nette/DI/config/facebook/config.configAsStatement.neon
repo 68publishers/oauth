@@ -1,0 +1,14 @@
+extensions:
+    oauth: SixtyEightPublishers\OAuth\Bridge\Nette\DI\OAuthExtension
+    oauth.facebook: SixtyEightPublishers\OAuth\Bridge\Nette\DI\FacebookOAuthExtension
+
+oauth.facebook:
+    config: SixtyEightPublishers\OAuth\Config\Config(
+        flowEnabled: true
+        options: [
+            clientId: client
+            clientSecret: secret
+            graphApiVersion: v3.2
+        ]
+    )
+    authenticator: SixtyEightPublishers\OAuth\Tests\Fixtures\AuthenticatorFixture
