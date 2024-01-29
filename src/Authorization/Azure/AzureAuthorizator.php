@@ -15,6 +15,7 @@ final class AzureAuthorizator extends AbstractAuthorizator
 {
     public const OptClientId = 'clientId';
     public const OptClientSecret = 'clientSecret';
+    public const OptTenantId = 'tenantId';
     public const OptOptions = 'options';
 
     protected function createClient(ConfigInterface $config): AbstractProvider
@@ -34,6 +35,14 @@ final class AzureAuthorizator extends AbstractAuthorizator
 
         $baseGraphUri = $client->getRootMicrosoftGraphUri(null);
         $client->scope = 'openid profile email offline_access ' . $baseGraphUri . '/User.Read';
+
+        if ($config->has(self::OptTenantId)) {
+            $tenantId = (string) $config->get(self::OptTenantId);
+
+            if ('' !== $tenantId) {
+                $client->tenant = $tenantId;
+            }
+        }
 
         return $client;
     }

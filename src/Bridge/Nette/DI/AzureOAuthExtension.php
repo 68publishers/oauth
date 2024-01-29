@@ -24,6 +24,9 @@ final class AzureOAuthExtension extends AbstractIntegrationExtension
             AzureAuthorizator::OptClientSecret => Expect::string()
                 ->required()
                 ->dynamic(),
+            AzureAuthorizator::OptTenantId => Expect::string()
+                ->nullable()
+                ->dynamic(),
             AzureAuthorizator::OptOptions => Expect::array(),
         ];
     }

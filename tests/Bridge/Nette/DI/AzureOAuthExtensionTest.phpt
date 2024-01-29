@@ -53,6 +53,18 @@ final class AzureOAuthExtensionTest extends TestCase
                     AzureAuthorizator::OptClientSecret => 'secret',
                 ],
             ],
+            'with tenant id' => [
+                __DIR__ . '/config/azure/config.withTenantId.neon',
+                'azure',
+                true,
+                AuthenticatorFixture::class,
+                Config::class,
+                [
+                    AzureAuthorizator::OptClientId => 'client',
+                    AzureAuthorizator::OptClientSecret => 'secret',
+                    AzureAuthorizator::OptTenantId => '123',
+                ],
+            ],
             'config as statement' => [
                 __DIR__ . '/config/azure/config.configAsStatement.neon',
                 'azure',

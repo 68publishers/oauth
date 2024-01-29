@@ -58,6 +58,7 @@ extensions:
         enabled: true # default, not necessary to define
         clientId: '<client id>'
         clientSecret: '<client id>'
+        tenantId: '<tenant id>' # optional, use this option only if your Azure Entra ID application is configured as a single tenant.
         options: [] # additional options that are passed into the client
     authenticator: App\OAuth\AzureAuthenticator
 ```
