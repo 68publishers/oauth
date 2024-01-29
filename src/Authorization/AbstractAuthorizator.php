@@ -93,6 +93,7 @@ abstract class AbstractAuthorizator implements AuthorizatorInterface
             $resourceOwner = $client->getResourceOwner($token);
 
             return new AuthorizationResult(
+                client: $client,
                 resourceOwner: $resourceOwner,
                 accessToken: $token,
             );

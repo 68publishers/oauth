@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SixtyEightPublishers\OAuth\Tests;
 
+use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Token\AccessTokenInterface;
 use Mockery;
@@ -149,6 +150,7 @@ final class OAuthFlowTest extends TestCase
             'code' => '__code__',
         ];
         $authorizationResult = new AuthorizationResult(
+            client: Mockery::mock(AbstractProvider::class),
             resourceOwner: Mockery::mock(ResourceOwnerInterface::class),
             accessToken: Mockery::mock(AccessTokenInterface::class),
         );
