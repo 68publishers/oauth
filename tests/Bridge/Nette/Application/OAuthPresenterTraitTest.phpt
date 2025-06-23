@@ -371,7 +371,6 @@ final class OAuthPresenterTraitTest extends TestCase
             $params,
             $httpRequest->getPost(),
             $httpRequest->getFiles(),
-            [Request::SECURED => $httpRequest->isSecured()],
         );
     }
 }
