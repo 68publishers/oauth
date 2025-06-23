@@ -31,6 +31,21 @@ trait OAuthPresenterTrait
     }
 
     /**
+     * @throws BadRequestException
+     */
+    protected function startup(): void
+    {
+        parent::startup();
+
+        if (!in_array($this->getAction(), ['authorize', 'authenticate'])) {
+            $this->error(
+                message: 'Unknown action.',
+                httpCode: IResponse::S404_NotFound,
+            );
+        }
+    }
+
+    /**
      * @throws AbortException
      * @throws BadRequestException
      * @throws InvalidLinkException
